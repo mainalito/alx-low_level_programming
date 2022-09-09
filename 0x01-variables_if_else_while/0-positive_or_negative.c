@@ -20,4 +20,5 @@ int main(void)
 	{
 		printf("is zero\n");
 	}
+	return (0);
 }
