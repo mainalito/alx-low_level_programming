@@ -1,7 +1,6 @@
 #include <stdio.h>
 /**
-*
-* main - Entry point
+* main - print upper and lower case letters
 *
 * Return: 0
 */
