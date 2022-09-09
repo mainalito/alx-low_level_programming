@@ -10,10 +10,14 @@ int main(void)
 
 	if (n > 0)
 	{
-		printf("is positie");
+		printf("is positive\n");
 	}
-	else
+	else if (n < 0)
 	{
-		printf("is negative");
+		printf("is negative\n");
+	}
+	else if (n == 0)
+	{
+		printf("is zero\n");
 	}
 }
