@@ -1,24 +1,30 @@
 #include "main.h"
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+
 /**
- * _print_rev_recursion - print reverse
+ * display_string - prints all characters in a string (in reverse)
  * @s: string to print
- * Return: Always 0.
+ * @len: length of the string
+ */
+void display_string(char *s, int len)
+{
+	if (len == 0)
+		return;
+	_putchar(*(s + (len - 1)));
+	len--;
+
+	display_string(s, len);
+}
+
+/**
+ * _print_rev_recursion - prints a string in reverse
+ * @s: string to print
  */
 void _print_rev_recursion(char *s)
 {
-	int i;
-	int len;
-	int temp;
+	int len = strlen(s);
 
-	len = strlen(s);
-	if (i < len / 2)
-	{
-		temp = s[i];
-		s[i] = s[len - i - 1];
-		s[len - i - 1] = temp;
-		i++;
-		_print_rev_recursion(s);
-	}
+	display_string(s, len);
+
 }
