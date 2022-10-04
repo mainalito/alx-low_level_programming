@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include<string.h>
+
 /**
 * _strdup - a function that copies a string
 * @str: the string to  be copied
@@ -10,17 +10,23 @@
 char *_strdup(char *str)
 {
 	int i;
-	int len = strlen(str);
+	int c = 0;
 	char *newStr;
 
 	if (str == NULL)
 		return (NULL);
+	for (i = 0 ; ; i++)
+	{
+		c++;
+		if (str[i] == '\0')
+			break;
+	}
 
-	newStr = (char *) malloc((len + 1)  * sizeof(char));
+	newStr = (char *) malloc(c * sizeof(char));
 	if (newStr == NULL)
 		return (NULL);
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < c; i++)
 	{
 		newStr[i] = str[i];
 	}
