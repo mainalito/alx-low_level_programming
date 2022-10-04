@@ -10,16 +10,18 @@
  * (which contains a copy of the string given as a parameter)
  * OR: NULL if str = NULL
  */
-charr *_strdup(char *str)
+char *_strdup(char *str)
 {
 	int i;
 	char *ptr;
 	int len = strlen(str);
-
+	
 	ptr = malloc(sizeof(char) * (len + 1));
+	if (ptr == NULL)
+		return (NULL);
 	for (i = 0; i <= len; i++)
 	{
 		*(ptr + i) = *(str + i);
 	}
 	return (ptr);
-}
+}i
