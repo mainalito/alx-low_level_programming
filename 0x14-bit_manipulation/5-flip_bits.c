@@ -1,21 +1,24 @@
 #include "main.h"
 
 /**
-* clear_bit - a function that clears the value of a bit at a given index
-* @n: the number to be operated on
-* @index: the index
-* Return: returns 1 (Success), -1 (error)
-*/
-int clear_bit(unsigned long int *n, unsigned int index)
+ * flip_bits - counts the number of bits to change
+ * to get from one number to another
+ * @n: first number
+ * @m: second number
+ * Return: returns the number of bits to change
+ */
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int mask;
+	int i, c = 0;
+	unsigned long int current;
+	unsigned long int xor = n ^ m;
 
-	if (index > 63)
-		return (-1);
+	for (i = 63; i >= 0; i--)
+	{
+		current = xor >> i;
+		if (current & 1)
+			c++;
+	}
 
-	mask = 1 << index;
-
-	*n = (*n & ~mask);
-
-	return (1);
+	return (c);
 }
