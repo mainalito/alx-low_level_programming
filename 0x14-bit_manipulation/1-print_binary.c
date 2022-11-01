@@ -1,21 +1,27 @@
-#include "main.h"
+include "main.h"
 
 /**
-* clear_bit - a function that clears the value of a bit at a given index
-* @n: the number to be operated on
-* @index: the index
-* Return: returns 1 (Success), -1 (error)
+* print_binary - a function that prints the binary representation of a number
+* @n: the number to be printed in binary form
+* Return: returns nothing
 */
-int clear_bit(unsigned long int *n, unsigned int index)
+void print_binary(unsigned long int n)
 {
-	int mask;
+	int i, c = 0;
+	unsigned long int current;
 
-	if (index > 63)
-		return (-1);
+	for (i = 63; i >= 0; i--)
+	{
+		current = n >> i;
 
-	mask = 1 << index;
-
-	*n = (*n & ~mask);
-
-	return (1);
+		if ((current & 1) == 1)
+		{
+			_putchar('1');
+			c++;
+		}
+		else if (c != 0)
+			_putchar('0');
+	}
+	if (c == 0)
+		_putchar('0');
 }
